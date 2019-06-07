@@ -1,0 +1,38 @@
+#headerCardText{
+    font-size: 12px
+}
+#parentContainer{
+    margin-bottom: 20px;
+    /* width: 250px !important; */
+}
+#mainContainer{
+    margin: 10px !important;
+}
+.img-fluid{
+    /* height: 50%; */
+    /* width: 50%; */
+    position: center;
+}
+#buttonToViewOnBitSkins{
+    height: 10%;
+    width: 50%;
+    float: right;
+}
+#detailedInfoForSkin{
+    padding: 10px !important;
+}
+#fancyFloatTextFN{
+    color: #00bc8c
+}
+#fancyFloatTextMW{
+    color: #3498db
+}
+#fancyFloatTextFT{
+    color: #375a7f
+}
+#fancyFloatTextWW{
+    color: #f39c12
+}
+#fancyFloatTextBS{
+    color: #e74c3c
+}

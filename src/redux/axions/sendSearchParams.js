@@ -21,7 +21,8 @@ export const sendSearchParams = info => ({
 //     .then(x => dispatch(receiveWeather(x)))
 //     .catch(e => alert(e));
 // }
-export default () => dispatch =>
+
+export default (data) => dispatch =>
 axios({
     method: "GET",
     baseURL: "https://www.bitskins.com/api/v1/get_inventory_on_sale/",
@@ -31,11 +32,11 @@ axios({
         "api_key": apiKey,
         "code": totp.gen(base32.decode(secretKey)),
       // "code": totp.gen(base32.decode(secretKey)),
-        "page":  1,
+        "page":  data.pagesToSearch,
         "app_id": "730",
       //"sort_by": {created_at|price}. CS:GO only: wear_value. (optional)
       //"order": {desc|asc} (optional)
-        market_hash_name: "",     //Full or partial item name (optional)
+        market_hash_name: data.gunName,     //Full or partial item name (optional)
       //"min_price": Minimum price (optional)
       //"max_price": Maximum price (optional)
       //"has_stickers": {-1|0|1}. For CS:GO only. (optional)
@@ -43,8 +44,18 @@ axios({
       //"is_souvenir": {-1|0|1}. For CS:GO only. (optional)
         "per_page": "30", /*Results per page. Must be either 30, or 480. (optional)*/
         "show_trade_delayed_items":0 /*{-1|0|1}. For CS:GO only.*/
-}}) 
-    // .then(res => console.log(res, 'yurt'))
+}})
+    .then(info => {
+      if(!data.stickers.length){console.log('NO STICKER LENGTH')}
+      console.log(info.data.data.items.stickers, 'stickers')
+      console.log(info.data.data.items.map(x=> {
+        if(x.stickers === null || x.stickers === undefined){console.log('null&undefined ensure')}
+        else if(){x.stickers.map(y=>
+          y.name.includes(data.stickers) ? console.log(y): null)}})
+        // console.log(y, 'this is y')))
+    )}) 
+    
+        // .then(res => console.log(res, 'yurt'))
     // .then(res => res.data.data.items)
     // .then(res => res.end(JSON.stringify(res.data.data.items)))
     .then(info => dispatch(sendSearchParams(info.data.data.items)))

@@ -28,11 +28,19 @@ class App extends Component {
         id="App"
         > 
           <MDBRow>
-            <MDBCol size="3">
+            <MDBCol 
+            size="2"
+            style={{
+              padding: "0px !important",
+              paddingLeft: "0px !important", //not working
+              paddingRight: "0px !important" //not working
+
+              }}
+            >
               <SearchSideNav/>
             </MDBCol>
             <MDBCol 
-            size="9"
+            size="10"
             style={{backgroundColor: "pink"}}
             >
             <ImageContainer/>

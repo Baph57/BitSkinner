@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
-// import "./styles/SearchSideNav.css"
+import "./styles/SearchSideNav.css"
 import GunDiv from "./gunDiv"
 import {
     MDBContainer, 
@@ -25,7 +25,7 @@ class ImageContainer extends Component {
             id="ImageContainer"
             >
                 searchSideNav
-            <MDBRow>
+            <MDBRow style={{width: "100%"}}>
             {itemRenderCheck}
             </MDBRow>
             </MDBContainer>
