@@ -25,6 +25,7 @@ export default () => dispatch =>
 axios({
     method: "GET",
     baseURL: "https://www.bitskins.com/api/v1/get_inventory_on_sale/",
+    crossdomain: true,
     //url: "/api/v1/get_inventory_on_sale/",
     params: {
         "api_key": apiKey,

@@ -15,12 +15,12 @@ const GunDiv = (props) => {
         // this.props.images.map(x=>{})
         return (
             <>
-            <div>
+            <div>test</div>
             <img 
             src={props.gunInfo.image}
             alt="there's supposed to be a gun here"
             />
-            </div>
+            
             </>
         )
     // }
