@@ -45,18 +45,27 @@ axios({
         "per_page": "30", /*Results per page. Must be either 30, or 480. (optional)*/
         "show_trade_delayed_items":0 /*{-1|0|1}. For CS:GO only.*/
 }})
-    .then(info => {
-      if(!data.stickers.length){console.log('NO STICKER LENGTH')}
-      console.log(info.data.data.items.stickers, 'stickers')
-      console.log(info.data.data.items.map(x=> {
-        if(x.stickers === null || x.stickers === undefined){console.log('null&undefined ensure')}
-        else if(){x.stickers.map(y=>
-          y.name.includes(data.stickers) ? console.log(y): null)}})
-        // console.log(y, 'this is y')))
-    )}) 
+    .then(halp => {
+      var filteredData = [];
+      var nonFilteredData = [];
+      var dataHelper1 = halp.data.data.items.map(x=> {
+        if(x.stickers !== null && x.stickers !== undefined){filteredData.push(x)}})
+        if(!data.stickers.length){nonFilteredData.push(x)}
+      console.log(filteredData, 'filtered data')
+      })
+    .then(info => dispatch(sendSearchParams(info.data.data.items)))
+    .catch(e => alert(e));
+
+
+
+          // console.log(info.data.data.items.stickers, 'stickers')
+      // console.log(info.data.data.items.map(x=> {
+
+            // if(filteredData.length){x.stickers.map(y=>
+        //   y.name.includes(data.stickers) ? filteredData.push(x.stickers[y]) : null)}})
+        // console.log(filteredData, 'this filtered')
+        // }) 
     
         // .then(res => console.log(res, 'yurt'))
     // .then(res => res.data.data.items)
     // .then(res => res.end(JSON.stringify(res.data.data.items)))
-    .then(info => dispatch(sendSearchParams(info.data.data.items)))
-    .catch(e => alert(e));
