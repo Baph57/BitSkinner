@@ -9,9 +9,14 @@ import {
     MDBInput
 } from 'mdbreact'
 class ImageContainer extends Component {
+    constructor(props){
+        super(props)
+        this.state= {};
+    }
     render() {
         // const images = this.props.images.length ?
         // this.props.images.map(x=>{})
+        console.log("Image Container props: ", this.props)
         const itemRenderCheck = this.props.reduxer.length ?
         // this.props.reduxer.map(x=>{console.log(x.market_hash_name)}) : null;
         this.props.reduxer.map(x=>

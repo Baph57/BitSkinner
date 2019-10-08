@@ -10,6 +10,14 @@ import {
     MDBInput
 } from 'mdbreact'
 class SearchSideNav extends Component {
+    constructor(props){
+        super(props)
+        this.state={
+            stickers: "",
+            gunName: "",
+            pagesToSearch: 100
+        }
+    }
     _onChange = e => {
         e.preventDefault()
         let test = {}
@@ -21,13 +29,9 @@ class SearchSideNav extends Component {
     }
     _onSubmit = e => {
         e.preventDefault();
-        // console.log(this.props)
+        console.log("Search Side Nav Props: ",this.props)
+        console.log("Search Side Nav State: ",this.state)
         this.props.sendSearchParams(this.state)
-    }
-    state={
-        stickers: "",
-        gunName: "",
-        pagesToSearch: 100
     }
     render() {
         return (
@@ -52,7 +56,7 @@ class SearchSideNav extends Component {
                 onChange={this._onChange.bind(this)}
                 />
                 <MDBInput 
-                label="Stickers"
+                label="pagesToSearch"
                 id="pagesToSearch"
                 size="lg"
                 value={this.state.pagesToSearch}

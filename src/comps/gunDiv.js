@@ -50,24 +50,25 @@ const GunDiv = (props) => {
             <MDBCard 
             id="mainContainer"
             >
+            
             <MDBCardText
             id="headerCardText"
             >{slicedTitle}
-
             </MDBCardText>
+
             <MDBCardImage
             className="img-fluid" 
             src={props.gunInfo.image} waves
             />
+
             <MDBCardBody
             id="detailedInfoForSkin"
-            >
-                {fancyFloatContainer}
+            >{fancyFloatContainer}
 
                 <MDBBtn  
                 id="buttonToViewOnBitSkins"
                 href="#"
-                >MDBBtn
+                >View On Bitskins
                 </MDBBtn>
 
             </MDBCardBody>
