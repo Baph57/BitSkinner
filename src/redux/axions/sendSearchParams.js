@@ -48,14 +48,10 @@ axios({
     "show_trade_delayed_items":0 /*{-1|0|1}. For CS:GO only.*/
 }})
     .then(halp => {
-      // var filteredData = [];
-      // var nonFilteredData = [];
       console.log(halp.data.data.items)
-      dataHelper1 = halp.data.data.items.map( x => {
-        if(x.stickers !== null && x.stickers !== undefined){filteredData.push(x)}
-        else if(!data.stickers.length){nonFilteredData.push(x)} 
-        // console.log(filteredData, 'filtered data')
-      })
+      dataHelper1 = halp.data.data.items.filter(x => 
+        x.stickers !== undefined && x.stickers.length > 0)
+        
     })
     .then(() => {dispatch(sendSearchParams(filteredData))})
     .catch(e => alert(e));
