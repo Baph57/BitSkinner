@@ -13,7 +13,7 @@ class SearchSideNav extends Component {
     constructor(props){
         super(props)
         this.state={
-            stickers: "",
+            stickerName: "",
             gunName: "",
             pagesToSearch: 100
         }
@@ -42,10 +42,10 @@ class SearchSideNav extends Component {
             >
                 
                 <MDBInput 
-                label="Stickers"
-                id="stickers"
+                label="stickerName"
+                id="stickerName"
                 size="lg"
-                value={this.state.stickers}
+                value={this.state.stickerName}
                 onChange={this._onChange.bind(this)}
                 />
                 <MDBInput 
@@ -65,7 +65,7 @@ class SearchSideNav extends Component {
                 <MDBBtn 
                 color="success"
                 onClick={this._onSubmit}
-                    >Success
+                    >Submit
                 </MDBBtn>
             </MDBContainer>
             </>

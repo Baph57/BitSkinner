@@ -2,11 +2,11 @@
     font-size: 12px
 }
 #parentContainer{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     /* width: 250px !important; */
 }
 #mainContainer{
-    margin: 10px !important;
+    margin: 5px !important;
 }
 .img-fluid{
     /* height: 50%; */
@@ -15,11 +15,13 @@
 }
 #buttonToViewOnBitSkins{
     height: 10%;
-    width: 50%;
-    float: right;
+    width: 40%;
+    text-align: left;
+    text-anchor: initial;
+    /* float: right; */
 }
 #detailedInfoForSkin{
-    padding: 10px !important;
+    padding: 20px !important;
 }
 #fancyFloatTextFN{
     color: #00bc8c

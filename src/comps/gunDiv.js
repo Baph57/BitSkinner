@@ -8,7 +8,8 @@ import {
     MDBCardImage, 
     MDBCardTitle, 
     MDBCardText, 
-    MDBCol
+    MDBCol,
+    MDBRow
 } from 'mdbreact'
 const GunDiv = (props) => {
     // console.log(props.gunInfo,"updated in gundiv")
@@ -36,9 +37,22 @@ const GunDiv = (props) => {
     fancyFloatContainer = <MDBCardText id="fancyFloatTextBS">{fancyFloatText}</MDBCardText> :
     console.log('error with colorizing float in gundiv.js')
 
+    
+
 
     console.log(props.gunInfo.stickers,'sticksinGUNDIV')
     var skeletonStickers = props.gunInfo.stickers
+    var skeletonStickerArray = []
+    for(let i = 0; i < skeletonStickers.length; i++){
+        skeletonStickerArray.push(            
+            <MDBCardImage
+                className="img-fluid"
+                style={{height: "60px", width: "60px", marginLeft: "10px"}} 
+                src={skeletonStickers[i].url} 
+                waves
+            />
+            )
+    }
     if(skeletonStickers !== null && skeletonStickers !== undefined){
         console.log(skeletonStickers)
     }
@@ -56,22 +70,27 @@ const GunDiv = (props) => {
             >{slicedTitle}
             </MDBCardText>
 
+            <MDBRow>
+                {skeletonStickerArray}
+            </MDBRow>
+
             <MDBCardImage
             className="img-fluid" 
-            src={props.gunInfo.image} waves
+            src={props.gunInfo.image} 
+            waves
             />
 
             <MDBCardBody
             id="detailedInfoForSkin"
             >{fancyFloatContainer}
 
+
+            </MDBCardBody>
                 <MDBBtn  
                 id="buttonToViewOnBitSkins"
                 href="#"
-                >View On Bitskins
+                >View
                 </MDBBtn>
-
-            </MDBCardBody>
             </MDBCard>
         </MDBCol>
     )

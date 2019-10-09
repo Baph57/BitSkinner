@@ -3,9 +3,9 @@ var {secretKey, apiKey} = require("../../secrets.js")
 console.log(secretKey, apiKey)
 // var totp = require('notp').totp;
 // var base32 = require('thirty-two');
-var dataHelper1;
 var filteredData = [];
-var nonFilteredData = [];
+// var filteredData = [];
+// var nonFilteredData = [];
 
 
 export const SEND_SEARCH_PARAMS = "SEND_SEARCH_PARAMS";
@@ -48,10 +48,35 @@ axios({
     "show_trade_delayed_items":0 /*{-1|0|1}. For CS:GO only.*/
 }})
     .then(halp => {
-      console.log(halp.data.data.items)
-      dataHelper1 = halp.data.data.items.filter(x => 
-        x.stickers !== undefined && x.stickers.length > 0)
-        
+      // console.log(halp.data.data.items)
+      var skeletonKey = halp.data.data.items
+      var katoBoolCheck = false;
+      for(let i = 0; i < skeletonKey.length; i++){
+        if(skeletonKey[i].stickers.length > 0)
+        {
+          // console.log("stickers of i : " , skeletonKey[i].stickers)
+          for(let j = 0; j < skeletonKey[i].stickers.length; j++){
+            // console.log("stickers of j : " ,skeletonKey[i].stickers[j])
+            if(skeletonKey[i].stickers[j].name.toLowerCase().includes(data.stickerName.toLowerCase()))
+            {
+              console.log("katoBoolCheck")
+              katoBoolCheck = true;
+            }
+          }
+        }
+        if(katoBoolCheck === true)
+        {
+          filteredData.push(skeletonKey[i])
+        }
+        katoBoolCheck = false;
+      }
+      console.log("DataHelper Action: ", filteredData)
+      // filteredData = halp.data.data.items.filter(x => 
+      //   x.stickers !== undefined && x.stickers.length > 0 ?
+      //   x.stickers.filter(y => y.name.includes(data.stickerName)):null)
+      //   console.log("data: ", data)
+      //   console.log("filteredData: ",filteredData)
+        // return filteredData
     })
     .then(() => {dispatch(sendSearchParams(filteredData))})
     .catch(e => alert(e));
