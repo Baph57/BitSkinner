@@ -12,12 +12,31 @@ import {
     MDBRow
 } from 'mdbreact'
 const GunDiv = (props) => {
-    // console.log(props.gunInfo,"updated in gundiv")
+    console.log(props.gunInfo,"updated in gundiv")
 
     //cutting out the floats from the title because I'd rather
     //show this with a numerical value for better accuracy
+    var titleComponent;
     var whereToSliceTitle = props.gunInfo.market_hash_name.indexOf("(")
     var slicedTitle = props.gunInfo.market_hash_name.slice(0,whereToSliceTitle)
+    if(slicedTitle.includes("StatTrak"))
+    {
+    titleComponent = 
+        <MDBCardText
+        id="headerCardText"
+        style={{color:"green"}}
+        >{slicedTitle}
+        </MDBCardText>
+    }
+    else
+    {
+        titleComponent = 
+        <MDBCardText
+        id="headerCardText"
+        style={{color:"red"}}
+        >{slicedTitle}
+        </MDBCardText>
+    }
     
 
     //conditionals to colorize the float value to make it easier
@@ -40,7 +59,7 @@ const GunDiv = (props) => {
     
 
 
-    console.log(props.gunInfo.stickers,'sticksinGUNDIV')
+    // console.log(props.gunInfo.stickers,'sticksinGUNDIV')
     var skeletonStickers = props.gunInfo.stickers
     var skeletonStickerArray = []
     for(let i = 0; i < skeletonStickers.length; i++){
@@ -53,9 +72,9 @@ const GunDiv = (props) => {
             />
             )
     }
-    if(skeletonStickers !== null && skeletonStickers !== undefined){
-        console.log(skeletonStickers)
-    }
+    // if(skeletonStickers !== null && skeletonStickers !== undefined){
+    //     console.log(skeletonStickers)
+    // }
 
     return (
         <MDBCol 
@@ -65,10 +84,7 @@ const GunDiv = (props) => {
             id="mainContainer"
             >
             
-            <MDBCardText
-            id="headerCardText"
-            >{slicedTitle}
-            </MDBCardText>
+            {titleComponent}
 
             <MDBRow>
                 {skeletonStickerArray}
@@ -83,12 +99,13 @@ const GunDiv = (props) => {
             <MDBCardBody
             id="detailedInfoForSkin"
             >{fancyFloatContainer}
-
+            Listed Price: ${props.gunInfo.price} <br></br>
+            Suggested Price: ${props.gunInfo.suggested_price}
 
             </MDBCardBody>
                 <MDBBtn  
                 id="buttonToViewOnBitSkins"
-                href="#"
+                href={`https://bitskins.com/view_item?app_id=730&item_id=${props.gunInfo.item_id}`}
                 >View
                 </MDBBtn>
             </MDBCard>

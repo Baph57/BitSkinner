@@ -3,11 +3,11 @@
 }
 #parentContainer{
     margin-bottom: 10px;
-    /* width: 250px !important; */
+    width: 24% !important;
 }
 #mainContainer{
     margin: 5px !important;
-    /* width: 33%; */
+    width: 100%;
 }
 .img-fluid{
     /* height: 50%; */
@@ -16,7 +16,7 @@
 }
 #buttonToViewOnBitSkins{
     height: 10%;
-    width: 40%;
+    width: 90%;
     text-align: left;
     text-anchor: initial;
     /* float: right; */

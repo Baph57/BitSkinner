@@ -43,7 +43,6 @@ class ImageContainer extends Component {
             fluid
             id="ImageContainer"
             >
-            searchSideNav
             <MDBRow style={{width: "100%"}}>
             {itemsToRender}
             </MDBRow>

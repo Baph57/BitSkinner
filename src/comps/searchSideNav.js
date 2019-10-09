@@ -13,7 +13,7 @@ class SearchSideNav extends Component {
     constructor(props){
         super(props)
         this.state={
-            stickerName: "",
+            stickerName: "Katowice 2014",
             gunName: "",
             pagesToSearch: 10
         }
@@ -23,16 +23,19 @@ class SearchSideNav extends Component {
         e.preventDefault()
         let inputValues = {}
         inputValues[e.target.id] = e.target.value
-        // console.log(inputValues,'inputValues')
-        // console.log(this.state, 'state')
         this.setState(inputValues)
-        // let gunName = e.target.value
     }
     _onSubmit = e => {
         e.preventDefault();
         console.log("Search Side Nav Props: ",this.props)
         console.log("Search Side Nav State: ",this.state)
-        this.props.sendSearchParams(this.state)
+        var stateCopy = this.state
+        var numPagesToSearch = stateCopy.pagesToSearch;
+        console.log("PAGES TO SEARCHHHHHHH: ", stateCopy)
+        for(let i = 0; i < numPagesToSearch; i++){
+            this.props.sendSearchParams(stateCopy)
+            stateCopy.pagesToSearch--
+        }
     }
     render() {
         return (
@@ -81,4 +84,3 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps=({reduxer})=>({reduxer})
 
 export default connect(mapStateToProps,mapDispatchToProps)(SearchSideNav);
-// export default SearchSideNav
