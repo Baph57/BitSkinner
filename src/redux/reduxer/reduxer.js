@@ -9,7 +9,16 @@ import {SEND_SEARCH_PARAMS} from "../axions/sendSearchParams"
 export default function reduxer (state = {}, action){
     switch (action.type){
         case SEND_SEARCH_PARAMS:
-        return state.data = action.info
+            return Object.assign({}, state, {
+                data: action.info
+            })
+
+            // return state.setState((action) => 
+            // ({ ...reduxer, reduxer: action.info}))
+
+
+
+            //return state.data = action.info //use methods not assignment ops
         // case ON_CLICK_CONSOLE_LOG :
         // return console.log(action.log)
         // case RECEIVE_WEATHER:

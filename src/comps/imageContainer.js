@@ -8,8 +8,11 @@ import {
     MDBCol,
     MDBInput
 } from 'mdbreact'
+// import store from '../redux/store.js';
 
-const mapStateToProps=({reduxer})=>({reduxer})
+// var currentState = this.setState(store.getState())
+
+
 
 class ImageContainer extends Component {
     constructor(props){
@@ -18,12 +21,18 @@ class ImageContainer extends Component {
     }
 
     render() {
+        
         var itemsToRender;
         console.log("Image Container props: ", this.props)
+        // console.log("Store from Redux: ", store.getState())
+        //var currentState = store.getState();
 
-        if(this.props.reduxer && this.props.reduxer.length > 0)
+
+        if(this.props.reduxer.data && 
+            this.props.reduxer.data.length > 0   )
+            // currentState === store.getState()
         {
-            itemsToRender = this.props.reduxer.map(x => {
+            itemsToRender = this.props.reduxer.data.map(x => {
                 return <GunDiv key={x.item_id} gunInfo={x}/>
             })
         }
@@ -43,5 +52,33 @@ class ImageContainer extends Component {
         )
     }
 }
+const mapStateToProps=({reduxer})=>({reduxer})
 
 export default connect(mapStateToProps, null)(ImageContainer);
+
+
+///// Code Graveyard //////
+/* piece of example code from redux docs
+        var currentState
+        function handleChange() {
+        var previousState = currentState
+        currentState = store.getState()
+
+        if (previousState !== currentState) {
+            console.log(
+            'Some deep nested property changed from',
+            previousState,
+            'to',
+            currentState
+            )
+        }
+        }
+        const checkStore = store.subscribe(handleChange())
+        checkStore();
+
+
+    handleStoreChange(){this.setState(store.getState())}
+    // console.log("store.getState()" , store.getState())
+    // this.setState({readyToReRender: true})
+
+*/
