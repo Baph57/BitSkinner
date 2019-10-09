@@ -98,4 +98,3 @@ const GunDiv = (props) => {
 }
 const mapStateToProps=({reduxer})=>({reduxer})
 export default connect(mapStateToProps,null)(GunDiv);
-// export default GunDiv;

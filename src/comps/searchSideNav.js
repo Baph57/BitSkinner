@@ -15,16 +15,17 @@ class SearchSideNav extends Component {
         this.state={
             stickerName: "",
             gunName: "",
-            pagesToSearch: 100
+            pagesToSearch: 10
         }
+        console.log(sendSearchParams)
     }
     _onChange = e => {
         e.preventDefault()
-        let test = {}
-        test[e.target.id] = e.target.value
-        // console.log(test,'test')
+        let inputValues = {}
+        inputValues[e.target.id] = e.target.value
+        // console.log(inputValues,'inputValues')
         // console.log(this.state, 'state')
-        this.setState(test)
+        this.setState(inputValues)
         // let gunName = e.target.value
     }
     _onSubmit = e => {
@@ -77,5 +78,7 @@ const mapDispatchToProps = dispatch => ({
         dispatch(sendSearchParams(data))
     }
 })
-export default connect(null,mapDispatchToProps)(SearchSideNav);
+const mapStateToProps=({reduxer})=>({reduxer})
+
+export default connect(mapStateToProps,mapDispatchToProps)(SearchSideNav);
 // export default SearchSideNav

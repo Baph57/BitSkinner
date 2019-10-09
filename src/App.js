@@ -54,20 +54,7 @@ class App extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     updated: state.sampleKey.updated
-//   }
-// }
+const mapStateToProps=({reduxer})=>({reduxer})
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     update: () => {
-//       dispatch(
-//         sampleAction()
-//       )
-//     }
-//   }
-// }
 
-export default connect(null, null)(App);
+export default connect(mapStateToProps, null)(App);
