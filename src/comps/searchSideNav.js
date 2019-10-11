@@ -7,7 +7,9 @@ import {
     // MDBRow, 
     // MDBCol,
     MDBBtn,
-    MDBInput
+    MDBInput,
+    MDBListGroup,
+    MDBListGroupItem
 } from 'mdbreact'
 class SearchSideNav extends Component {
     constructor(props){
@@ -71,6 +73,15 @@ class SearchSideNav extends Component {
                 onClick={this._onSubmit}
                     >Submit
                 </MDBBtn>
+                <MDBListGroup className="my-4 mx-4" style={{border: "2px outset"}}>
+                <MDBListGroupItem color="light" style={{border: "2px outset"}}>Background Color Key</MDBListGroupItem>
+                <MDBListGroupItem style={{backgroundColor:"#00FF55"}}>Gun is StatTrak</MDBListGroupItem>
+                <MDBListGroupItem style={{backgroundColor:"#446AFF"}}>Gun is NOT StatTrak</MDBListGroupItem>
+                <MDBListGroupItem style={{backgroundColor:"#34274E", color: "white"}}>Sticker is Vanilla</MDBListGroupItem>
+                <MDBListGroupItem style={{backgroundColor:"#BAB347"}}>Sticker is Foil</MDBListGroupItem>
+                <MDBListGroupItem style={{backgroundColor:"#FFD0F3"}}>Sticker is Holo</MDBListGroupItem>
+                {/* <MDBListGroupItem color="dark">Vestibulum at eros</MDBListGroupItem> */}
+                </MDBListGroup>
             </MDBContainer>
             </>
         )

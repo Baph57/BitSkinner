@@ -107,22 +107,39 @@ for (let i = 0; i < skeletonStickers.length; i++) {
         waves
         />
     );
-    } else {
-    skeletonStickerArray.push(
-        <MDBCardImage
-        className="img-fluid"
-        style={{ 
-            height: "50px", 
-            width: "50px", 
-            marginLeft: "10px",
-            backgroundColor: "#34274E"
-        }}
-        src={skeletonStickers[i].url}
-        waves
-        />
+    } else if(skeletonStickers[i].name.includes("Foil")) {
+        skeletonStickerArray.push(
+            <MDBCardImage
+            className="img-fluid"
+            style={{
+                height: "50px",
+                width: "50px",
+                marginLeft: "10px",
+                backgroundColor: "#BAB347"
+            }}
+            src={skeletonStickers[i].url}
+            waves
+            />
     );
+    } 
+    else
+    {
+        skeletonStickerArray.push(
+            <MDBCardImage
+            className="img-fluid"
+            style={{ 
+                height: "50px", 
+                width: "50px", 
+                marginLeft: "10px",
+                backgroundColor: "#34274E"
+            }}
+            src={skeletonStickers[i].url}
+            waves
+            />
+        );
     }
 }
+
 
 
 // var conditionalPriceRender;
