@@ -23,14 +23,24 @@ var slicedTitle = props.gunInfo.market_hash_name.slice(0, whereToSliceTitle);
 var statTrackBackground;
 if (slicedTitle.includes("StatTrak")) {
     titleComponent = (
-    <MDBCardText id="headerCardText" style={{ color: "green" }}>
-        {slicedTitle}
+    <MDBCardText 
+        id="headerCardText" 
+        style={{
+            backgroundColor: "black",
+            border: "goldenrod outset"
+        }}>
+            {slicedTitle}
     </MDBCardText>
     );
     statTrackBackground = "#00FF55";
 } else {
     titleComponent = (
-    <MDBCardText id="headerCardText" style={{ color: "red" }}>
+    <MDBCardText 
+        id="headerCardText" 
+        style={{
+            backgroundColor: "black",
+            border: "goldenrod outset"
+        }}>
         {slicedTitle}
     </MDBCardText>
     );
@@ -41,26 +51,41 @@ if (slicedTitle.includes("StatTrak")) {
   //for the user to understand at a glance what the float is
 var skeletonFloatText = props.gunInfo.float_value;
 var fancyFloatContainer;
-var fancyFloatText = "𝔽𝕍 : " + skeletonFloatText;
+var fancyFloatText = " 𝔽𝕍 : " + skeletonFloatText;
 skeletonFloatText < 0.07
     ? (fancyFloatContainer = (
-        <MDBCardText id="fancyFloatTextFN">{fancyFloatText}</MDBCardText>
+        <MDBCardText 
+        id="fancyFloatText"
+        style={{color:"#00bc8c"}}
+        >{fancyFloatText}</MDBCardText>
     ))
     : skeletonFloatText > 0.07
     ? (fancyFloatContainer = (
-        <MDBCardText id="fancyFloatTextMW">{fancyFloatText}</MDBCardText>
+        <MDBCardText 
+        id="fancyFloatText"
+        style={{color: "#3498db"}}
+        >{fancyFloatText}</MDBCardText>
     ))
     : skeletonFloatText > 0.15
     ? (fancyFloatContainer = (
-        <MDBCardText id="fancyFloatTextFT">{fancyFloatText}</MDBCardText>
+        <MDBCardText 
+        id="fancyFloatText"
+        style={{color:"#375a7f"}}
+        >{fancyFloatText}</MDBCardText>
     ))
     : skeletonFloatText > 0.37
     ? (fancyFloatContainer = (
-        <MDBCardText id="fancyFloatTextWW">{fancyFloatText}</MDBCardText>
+        <MDBCardText 
+        id="fancyFloatText"
+        style={{color: "#f39c12"}}
+        >{fancyFloatText}</MDBCardText>
     ))
     : skeletonFloatText < 0.44
     ? (fancyFloatContainer = (
-        <MDBCardText id="fancyFloatTextBS">{fancyFloatText}</MDBCardText>
+        <MDBCardText 
+        id="fancyFloatText"
+        style={{color:"#e74c3c"}}
+        >{fancyFloatText}</MDBCardText>
     ))
     : console.log("error with colorizing float in gundiv.js");
 
@@ -73,10 +98,10 @@ for (let i = 0; i < skeletonStickers.length; i++) {
         <MDBCardImage
         className="img-fluid"
         style={{
-            height: "60px",
-            width: "60px",
+            height: "50px",
+            width: "50px",
             marginLeft: "10px",
-            backgroundColor: "cyan"
+            backgroundColor: "#FFD0F3"
         }}
         src={skeletonStickers[i].url}
         waves
@@ -86,7 +111,12 @@ for (let i = 0; i < skeletonStickers.length; i++) {
     skeletonStickerArray.push(
         <MDBCardImage
         className="img-fluid"
-        style={{ height: "60px", width: "60px", marginLeft: "10px" }}
+        style={{ 
+            height: "50px", 
+            width: "50px", 
+            marginLeft: "10px",
+            backgroundColor: "#34274E"
+        }}
         src={skeletonStickers[i].url}
         waves
         />
