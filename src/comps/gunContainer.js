@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
-import "./styles/SearchSideNav.css"
+import "./styles/gunContainer.css"
 import GunDiv from "./gunDiv"
 import {
     MDBContainer, 
@@ -22,6 +22,7 @@ class ImageContainer extends Component {
 
     render() {
         
+        
         var itemsToRender;
         console.log("Image Container props: ", this.props)
         // console.log("Store from Redux: ", store.getState())
@@ -41,9 +42,12 @@ class ImageContainer extends Component {
             <>
             <MDBContainer 
             fluid
+            style={{width: "100%"}}
             id="ImageContainer"
             >
-            <MDBRow style={{width: "100%"}}>
+            <MDBRow 
+            style={{width: "100%"}}
+            >
             {itemsToRender}
             </MDBRow>
             </MDBContainer>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import sendSearchParams from "../redux/axions/sendSearchParams"
 import { connect } from "react-redux"
-// import "./styles/SearchSideNav.css"
+import "./styles/SearchSideNav.css"
 import {
     MDBContainer, 
     // MDBRow, 

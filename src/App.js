@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 // import {sampleAction} from './redux/store'
 import {MDBContainer, MDBRow, MDBCol} from 'mdbreact'
 import SearchSideNav from "./comps/searchSideNav"
-import ImageContainer from "./comps/imageContainer"
+import GunContainer from "./comps/gunContainer"
 import "./comps/styles/App.css"
 import { 
   BrowserRouter as 
@@ -43,7 +43,7 @@ class App extends Component {
             size="10"
             style={{backgroundColor: "pink"}}
             >
-            <ImageContainer/>
+            <GunContainer/>
             </MDBCol>
           </MDBRow>
         </MDBContainer>

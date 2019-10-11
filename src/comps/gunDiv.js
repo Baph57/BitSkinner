@@ -12,25 +12,29 @@ import {
     MDBRow
 } from "mdbreact";
 const GunDiv = props => {
-console.log(props.gunInfo, "updated in gundiv");
+// console.log(props.gunInfo, "updated in gundiv");
 
   //cutting out the floats from the title because I'd rather
   //show this with a numerical value for better accuracy
 var titleComponent;
 var whereToSliceTitle = props.gunInfo.market_hash_name.indexOf("(");
 var slicedTitle = props.gunInfo.market_hash_name.slice(0, whereToSliceTitle);
+
+var statTrackBackground;
 if (slicedTitle.includes("StatTrak")) {
     titleComponent = (
     <MDBCardText id="headerCardText" style={{ color: "green" }}>
         {slicedTitle}
     </MDBCardText>
     );
+    statTrackBackground = "#00FF55";
 } else {
     titleComponent = (
     <MDBCardText id="headerCardText" style={{ color: "red" }}>
         {slicedTitle}
     </MDBCardText>
     );
+    statTrackBackground = "#446AFF";
 }
 
   //conditionals to colorize the float value to make it easier
@@ -100,27 +104,31 @@ for (let i = 0; i < skeletonStickers.length; i++) {
 
 
 return (
-    <MDBCol id="parentContainer">
-    <MDBCard id="mainContainer">
-        {titleComponent}
-
-        <MDBRow>{skeletonStickerArray}</MDBRow>
-
-        <MDBCardImage className="img-fluid" src={props.gunInfo.image} waves />
-
-        <MDBCardBody id="detailedInfoForSkin">
-        {fancyFloatContainer}
-        Listed Price: ${props.gunInfo.price} <br></br>
-        Suggested Price: ${props.gunInfo.suggested_price}
-        </MDBCardBody>
-        <MDBBtn
-        id="buttonToViewOnBitSkins"
-        href={`https://bitskins.com/view_item?app_id=730&item_id=${props.gunInfo.item_id}`}
-        >
-        View
-        </MDBBtn>
-    </MDBCard>
-    </MDBCol>
+<MDBRow 
+    id="parentContainer"
+    style={{backgroundColor: "black"}}
+>
+        <MDBCard 
+            id="mainContainer"
+            style={{backgroundColor: statTrackBackground}}
+        >   {titleComponent}
+            <MDBRow
+                id="stickerRow"
+            >   {skeletonStickerArray}
+            </MDBRow>
+            <MDBCardImage className="img-fluid" src={props.gunInfo.image} waves />
+            <MDBCardBody id="detailedInfoForSkin">
+                {fancyFloatContainer}
+                Listed Price: ${props.gunInfo.price} <br></br>
+                Suggested Price: ${props.gunInfo.suggested_price}
+            </MDBCardBody>
+            <MDBBtn
+                id="buttonToViewOnBitSkins"
+                href={`https://bitskins.com/view_item?app_id=730&item_id=${props.gunInfo.item_id}`}
+                >View On BitSkins
+            </MDBBtn>
+        </MDBCard>
+</MDBRow>
 );
   // }
 };
@@ -129,3 +137,18 @@ export default connect(
 mapStateToProps,
 null
 )(GunDiv);
+
+
+//TODO: implement conditional background color rendering
+// console.log("Epoch time of now: " , new Date()) // epoch time of now
+
+// console.log("Epoch time of withdrawal: " , new Date(props.gunInfo.withdrawable_at))
+// var colorationToShowWithdrawalStatus;
+// if(Date.now() > props.gunInfo.withdrawable_at)
+// {
+//     colorationToShowWithdrawalStatus = "blue";
+// }
+// else
+// {
+//     colorationToShowWithdrawalStatus = "red";
+// }

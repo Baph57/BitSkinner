@@ -3,16 +3,20 @@
 }
 #parentContainer{
     margin-bottom: 10px;
-    width: 24% !important;
+    /* width: 24% !important; */
 }
 #mainContainer{
-    margin: 5px !important;
-    width: 100%;
+    margin: 5px 20px 5px 20px;
+    /* width: 100%; */
 }
 .img-fluid{
     /* height: 50%; */
     /* width: 50%; */
     position: center;
+}
+#stickerRow{
+    margin: 0px;
+    background-color: pink;
 }
 #buttonToViewOnBitSkins{
     height: 10%;
@@ -38,4 +42,7 @@
 }
 #fancyFloatTextBS{
     color: #e74c3c
+}
+#headerCardText{
+    font-size: 16px;
 }
