@@ -33,7 +33,21 @@ if (slicedTitle.includes("StatTrak")) {
     </MDBCardText>
     );
     statTrackBackground = "#00FF55";
-} else {
+} 
+else if (slicedTitle.includes("Souvenir")) {
+    titleComponent = (
+    <MDBCardText 
+        id="headerCardText" 
+        style={{
+            backgroundColor: "black",
+            border: "goldenrod outset"
+        }}>
+            {slicedTitle}
+    </MDBCardText>
+    );
+    statTrackBackground = "#FFCB4E";
+} 
+else {
     titleComponent = (
     <MDBCardText 
         id="headerCardText" 
